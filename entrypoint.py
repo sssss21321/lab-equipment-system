@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import uvicorn
-from app.main import app as fastapi_app
+from backend.app.main import app as fastapi_app
 
 # 托管前端静态文件
 fastapi_app.mount("/assets", StaticFiles(directory="dist/assets"), name="assets")
