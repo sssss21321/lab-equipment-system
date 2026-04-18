@@ -1,0 +1,28 @@
+# Node
+node_modules/
+frontend/node_modules/
+
+# Python
+__pycache__/
+backend/__pycache__/
+backend/venv/
+*.pyc
+*.pyo
+.env
+.venv/
+
+# SQLite
+*.db
+*.db-journal
+
+# Build outputs (rebuilt on deploy)
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

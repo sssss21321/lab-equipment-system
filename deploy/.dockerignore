@@ -1,0 +1,15 @@
+# 排除不需要的文件，减小镜像体积
+node_modules
+dist
+.git
+.gitignore
+*.md
+venv
+__pycache__
+*.pyc
+.env
+*.log
+.DS_Store
+.vscode
+.idea
+*.db

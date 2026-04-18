@@ -1,0 +1,40 @@
+# ============================================================
+# 实验室设备管理系统 - docker-compose 部署
+# ============================================================
+# 一键启动（服务器上运行）：
+#   cd deploy
+#   docker-compose up -d
+#
+# 访问地址：http://你的服务器IP
+# ============================================================
+
+services:
+  lab-system:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: lab-equipment-system
+    restart: unless-stopped
+    ports:
+      - "80:80"        # HTTP
+    volumes:
+      # 持久化数据库（重要！防止容器重启数据丢失）
+      - ../data:/app/backend/data
+
+  # 可选：PostgreSQL 数据库（替代 SQLite）
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: lab-postgres
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: lab_equipment
+  #     POSTGRES_USER: labuser
+  #     POSTGRES_PASSWORD: your_secure_password
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  # 后端需安装 psycopg2 并修改 database.py 连接字符串
+
+volumes:
+  # postgres_data:
