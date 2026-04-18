@@ -23,8 +23,10 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY backend/ ./backend/
+COPY backend/ ./app/
 COPY entrypoint.py .
+ENV PYTHONPATH=/app
+
 
 COPY --from=frontend /app/dist ./dist/
 
